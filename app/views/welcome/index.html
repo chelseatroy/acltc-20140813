@@ -1,8 +1,31 @@
 <!-- TODO: add ng-app="app" to the next line -->
-<div>
+<div ng-app="app">
 
   <!-- TODO: add ng-controller="songsCtrl" to the next line -->
-  <div>
+  <div ng-controller="songsCtrl">
+
+  <input ng-model="query">
+
+  <table>
+    <tr>
+      <th><a href="" ng-click="reverseOrder('id')">ID</a></th>
+      <th><a href="" ng-click="reverseOrder('name')">Name</a></th>
+      <th><a href="" ng-click="reverseOrder('artist')">Artist</a></th>
+      <th><a href="" ng-click="reverseOrder('album')">Album</a></th>
+      <th><a href="" ng-click="reverseOrder('time')">Time</a></th>
+      <th><a href="" ng-click="reverseOrder('created_at')">Created At</a></th>
+      <th><a href="" ng-click="reverseOrder('updated_at')">Updated At</a></th>
+    </tr>
+    <tr ng-repeat="song in songs | orderBy:column:forward | filter:query ">
+      <td>{{song.id}}</td>
+      <td>{{song.name | uppercase}}</td>
+      <td>{{song.artist}}</td>
+      <td>{{song.album}}</td>
+      <td>{{song.time}}</td>
+      <td>{{song.created_at}}</td>
+      <td>{{song.updated_at}}</td>
+    </tr>
+  </table>
 
 
   </div>
